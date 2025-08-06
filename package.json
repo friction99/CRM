@@ -1,0 +1,24 @@
+{
+  "name": "crmproject",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate":"dbmate -d ./db/migrations up",
+    "rollback":"dbmate -d ./db/migrations down",
+    "new":"dbmate -d ./db/migrations new"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "dbmate": "^2.28.0"
+  }
+}
