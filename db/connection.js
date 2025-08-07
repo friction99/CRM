@@ -10,5 +10,6 @@ pool.query('SELECT NOW()',(err,res)=>{
         console.error('DB connection error',err.stack);
     }
     else console.log('DB connected at',res.rows[0].now);
-    pool.end();
 })
+
+module.exports = pool;
