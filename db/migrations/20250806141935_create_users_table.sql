@@ -28,12 +28,15 @@ CREATE TABLE Orders(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id UUID REFERENCES Customers(id) ON DELETE CASCADE,
     order_status ostatus DEFAULT 'pending',
-    product TEXT NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
+    product_id UUID REFERENCES product(id) ON DELETE SET NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
+CREATE TABLE product(
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid();
+    name TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL
+)
 CREATE TABLE Communications (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id UUID REFERENCES Customers(id) ON DELETE CASCADE,
